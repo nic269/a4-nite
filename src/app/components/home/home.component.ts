@@ -3,7 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { AppState } from '../app.service';
+import { AppState } from '../../services';
 import { Title } from './title';
 import { XLargeDirective } from './x-large';
 
@@ -55,3 +55,7 @@ export class HomeComponent implements OnInit {
     this.localState.value = '';
   }
 }
+
+export type InternalStateType2 = {
+  [key: string]: any
+};

@@ -21,16 +21,11 @@ import {
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
-import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+import { APP_COMPONENTS, AppComponent } from '@Components';
+import { APP_RESOLVER_PROVIDERS, AppState, InternalStateType } from './services';
 
-import '../styles/styles.scss';
-import '../styles/headings.css';
+import '@Styles/styles.scss';
+import '@Styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -50,11 +45,7 @@ type StoreType = {
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
-    AppComponent,
-    AboutComponent,
-    HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    APP_COMPONENTS
   ],
   /**
    * Import Angular's modules.
