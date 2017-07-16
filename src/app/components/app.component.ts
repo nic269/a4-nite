@@ -28,7 +28,7 @@ import { AppState } from '../services';
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Home
       </a>
-      <a [routerLink]=" ['./detail'] "
+      <a [routerLink]=" ['./cards'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Detail
       </a>

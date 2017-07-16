@@ -55,7 +55,3 @@ export class HomeComponent implements OnInit {
     this.localState.value = '';
   }
 }
-
-export type InternalStateType2 = {
-  [key: string]: any
-};

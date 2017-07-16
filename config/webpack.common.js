@@ -90,6 +90,7 @@ module.exports = function (options) {
         '@App': helpers.root('src/app'),
         '@Components': helpers.root('src/app/components'),
         '@Services': helpers.root('src/app/services'),
+        '@Interfaces': helpers.root('src/interfaces'),
         '@Styles': helpers.root('src/styles'),
         '@Assets': helpers.root('src/assets')
       }

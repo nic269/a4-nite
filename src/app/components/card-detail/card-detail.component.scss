@@ -1,0 +1,13 @@
+.card-detail {
+  text-align: center;
+  margin-top: 2rem;
+
+  &__wrapper {
+    display: inline-block;
+    width: 50%;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+  }
+}

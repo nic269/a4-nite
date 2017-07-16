@@ -14,6 +14,12 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MdGridListModule,
+  MdSidenavModule
+} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -31,6 +37,12 @@ import '@Styles/headings.css';
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState
+];
+
+const MATERIAL_MODULE = [
+  BrowserAnimationsModule,
+  MdGridListModule,
+  MdSidenavModule
 ];
 
 type StoreType = {
@@ -54,7 +66,10 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules, }),
+    BrowserAnimationsModule,
+    ...MATERIAL_MODULE,
+    FlexLayoutModule
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
