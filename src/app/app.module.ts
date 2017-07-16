@@ -28,7 +28,14 @@ import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 // App is our top level component
 import { APP_COMPONENTS, AppComponent } from '@Components';
-import { APP_RESOLVER_PROVIDERS, AppState, InternalStateType } from './services';
+import {
+  APP_RESOLVER_PROVIDERS,
+  AppState,
+  InternalStateType,
+  UserServices,
+  AuthServices,
+  AuthGuard
+} from './services';
 
 import '@Styles/styles.scss';
 import '@Styles/headings.css';
@@ -36,7 +43,10 @@ import '@Styles/headings.css';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  UserServices,
+  AuthServices,
+  AuthGuard
 ];
 
 const MATERIAL_MODULE = [

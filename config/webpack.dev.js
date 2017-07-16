@@ -237,6 +237,14 @@ module.exports = function (options) {
         // app.get('/some/path', function(req, res) {
         //   res.json({ custom: 'response' });
         // });
+      },
+      proxy: {
+        "/api": {
+          "target": 'https://objects-api.herokuapp.com/api',
+          "pathRewrite": { '^/api': '' },
+          "changeOrigin": true,
+          "secure": false
+        }
       }
     },
 
