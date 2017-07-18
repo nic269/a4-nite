@@ -3,6 +3,6 @@ export const API_ENDPOINT = {
 };
 
 export const TEST_ACCOUNT = {
-  email: 'linh@quedro.com',
+  email: 'test22@quedro.com',
   password: 'abc123'
 };
