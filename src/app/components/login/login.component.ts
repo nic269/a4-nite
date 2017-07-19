@@ -4,21 +4,8 @@ import { AuthServices } from '../../services';
 
 @Component({
   selector: 'login',
-  template: `
-    <div class="login">
-      <form>
-        <div>
-          <label for="email">Email: </label>
-          <input type="text" name="email">
-        </div>
-        <div>
-          <label for="password">Password: </label>
-          <input type="password" name="password">
-        </div>
-        <button type="button" (click)="login()">login</button>
-      </form>
-    </div>
-  `
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   private prevUrl: string;
@@ -35,10 +22,15 @@ export class LoginComponent implements OnInit {
 
   public login() {
     this._authServices.logIn()
-      .subscribe((result) => {
-        if (result) {
-          this._router.navigate([this.prevUrl]);
+      .subscribe(
+        (result) => {
+          if (result) {
+            this._router.navigate([this.prevUrl]);
+          }
+        },
+        (error: any) => {
+          console.log(error, 'error');
         }
-      });
+      );
   }
 }

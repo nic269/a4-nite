@@ -1,0 +1,13 @@
+.login {
+  width: 90%;
+  max-width: 450px;
+  margin: 20px auto 0;
+  border: 1px solid #dadada;
+  padding: 15px;
+  background: #fff;
+
+  &__btn {
+    width: 100%;
+    cursor: pointer;
+  }
+}

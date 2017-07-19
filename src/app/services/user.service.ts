@@ -5,7 +5,7 @@ import {
   Headers
 } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { UserInfo } from '../interfaces';
+import { UserInfo, User } from '../interfaces';
 
 const USER_INFO = 'userInfo';
 const userInfo = {
@@ -37,6 +37,16 @@ export class UserServices {
     private _http: Http
   ) {}
 
+  public createUser(user: User): Observable<any> {
+    return this._http.post(
+      'api/users',
+      user
+    )
+    .map((res: Response) => {
+      console.log(res);
+    });
+  }
+
   public isLogedIn(): boolean {
     const user = userInfo.get();
 
@@ -49,5 +59,9 @@ export class UserServices {
 
   public removeUserInfo(): void {
     userInfo.remove();
+  }
+
+  public getUserInfo(): any {
+    return userInfo.get();
   }
 }

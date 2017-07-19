@@ -2,4 +2,21 @@
 
 <main>
   <router-outlet></router-outlet>
+  <div class="app__action text-center">
+    <button class="btn btn-warning" [routerLink]="['/cards']">
+      View cards
+    </button>
+
+    <button *ngIf="!token" class="btn btn-primary" [routerLink]="['/login']">
+      Login
+    </button>
+
+    <button *ngIf="!token" class="btn btn-success" [routerLink]="['/register']">
+      Register
+    </button>
+
+    <button *ngIf="token" class="btn btn-danger" (click)="logOut()">
+      Logout
+    </button>
+  </div>
 </main>

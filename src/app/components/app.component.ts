@@ -4,9 +4,11 @@
 import {
   Component,
   OnInit,
+  OnDestroy,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from '../services';
+import { Subscription } from 'rxjs/Subscription';
+import { AppState, AuthServices, UserServices } from '../services';
 
 /**
  * App Component
@@ -20,19 +22,37 @@ import { AppState } from '../services';
   ],
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+export class AppComponent implements OnInit, OnDestroy {
+  private token: string = '';
+  private subscription: Subscription
 
   constructor(
-    public appState: AppState
-  ) {}
+    public _appState: AppState,
+    private _authServices: AuthServices,
+    private _userServices: UserServices
+  ) {
+    const userInfo: any = this._userServices.getUserInfo();
 
-  public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+    if (userInfo && userInfo.token) {
+      this.token = userInfo.token;
+    }
   }
 
+  public ngOnInit() {
+    console.log('Initial App State', this._appState.state);
+    this.subscription = this._authServices.getLogin()
+      .subscribe((token) => {
+        this.token = token;
+      });
+  }
+
+  public ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  public logOut(): void {
+    this._authServices.logOut();
+  }
 }
 
 /**
